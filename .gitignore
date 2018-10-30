@@ -1,0 +1,6 @@
+.env
+.idea
+application/src/Infrastructure/Web/public/bundles
+application/var
+application/vendor
+docker/database

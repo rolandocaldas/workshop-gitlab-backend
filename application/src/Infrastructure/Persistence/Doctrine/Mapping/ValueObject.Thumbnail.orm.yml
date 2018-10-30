@@ -1,0 +1,7 @@
+Domain\ValueObject\Thumbnail:
+  type: embeddable
+  fields:
+    path:
+      type: string
+    extension:
+      type: string

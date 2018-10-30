@@ -1,0 +1,29 @@
+Domain\Entity\Character:
+  type: entity
+  table: character
+  repositoryClass: App\Persistence\Doctrine\Repository\CharacterRepository
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      column: name
+      type: string
+      length: 55
+      unique: true
+      nullable: false
+    description:
+      column: description
+      type: string
+      nullable: true
+    liked:
+      column: liked
+      type: boolean
+      nullable: false
+  embedded:
+    thumbnail:
+      class: Domain\ValueObject\Thumbnail
+      columnPrefix: thumbnail_
