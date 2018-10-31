@@ -55,11 +55,11 @@ class CharacterApiData
 
         $collection = [];
         foreach ($apiData AS $character) {
-            $collection = new self(
-                $character['id'],
-                $character['name'],
-                $character['description'],
-                new Thumbnail($character['path'], $character['extension'])
+            $collection[$character->id] = new self(
+                $character->id,
+                $character->name,
+                $character->description,
+                new Thumbnail($character->thumbnail->path, $character->thumbnail->extension)
             );
         }
 
