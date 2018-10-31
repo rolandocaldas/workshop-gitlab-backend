@@ -21,11 +21,11 @@ character_info:
   controller: App\Web\Controller\CharacterController::itemInfo
   methods: [GET, HEAD]
   requirements:
-      id: '\d+'
+    id: '\d+'
 
 character_liked:
   path: /character/{id}
   controller: App\Web\Controller\CharacterController::itemEditLiked
-    requirements:
-      id: '\d+'
+  requirements:
+    id: '\d+'
   methods: [PUT]
