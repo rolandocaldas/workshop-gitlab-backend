@@ -22,6 +22,6 @@ class CharacterInfo
     public function handle(int $characterId)
     {
         $character = $this->repository->findCharacter($characterId);
-        return json_encode($character->export());
+        return $character->export();
     }
 }

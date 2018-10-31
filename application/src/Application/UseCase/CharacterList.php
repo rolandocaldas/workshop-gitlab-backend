@@ -32,6 +32,6 @@ class CharacterList
         foreach ($this->characters AS $character) {
             $data[] = $character->export();
         }
-        return json_encode($data);
+        return $data;
     }
 }
