@@ -63,6 +63,7 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.1.*"
-        }
+        },
+        "public-dir": "src/Infrastructure/Web/public"
     }
 }
