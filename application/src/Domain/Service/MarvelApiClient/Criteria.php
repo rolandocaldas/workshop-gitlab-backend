@@ -17,7 +17,14 @@ class Criteria
     const SERIES = 'series';
     const STORIES = 'stories';
 
+    /**
+     * @var int
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $entity;
 
     public function __construct(int $id, string $entity)
