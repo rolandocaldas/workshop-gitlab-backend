@@ -129,7 +129,7 @@ class Character implements Exportable
      */
     public function getLiked() : bool
     {
-        $this->liked();
+        return $this->liked;
     }
 
     /**
