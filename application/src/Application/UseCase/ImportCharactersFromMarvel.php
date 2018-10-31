@@ -38,7 +38,7 @@ class ImportCharactersFromMarvel
             return;
         }
 
-        $this->loadExistedEntitiesOfResponse(... array_column($data, 'id'));
+        $this->loadExistedEntitiesOfResponse(... array_keys($data));
 
         $toSave = [];
         foreach ($data AS $item) {
