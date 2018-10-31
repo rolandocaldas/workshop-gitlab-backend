@@ -39,7 +39,7 @@ class CharacterRepository extends ServiceEntityRepository implements \Domain\Ent
             if ($this->errors === null) {
                 $this->errors = [];
             }
-            $errors[] = $exception;
+            $this->errors[] = $exception;
             $result = false;
         }
 
@@ -64,7 +64,7 @@ class CharacterRepository extends ServiceEntityRepository implements \Domain\Ent
             if ($this->errors === null) {
                 $this->errors = [];
             }
-            $errors[] = $exception;
+            $this->errors[] = $exception;
             $result = false;
         }
 
@@ -95,11 +95,10 @@ class CharacterRepository extends ServiceEntityRepository implements \Domain\Ent
         $return = [];
 
         $data = $this->createQueryBuilder('v')
-            ->select('c')
-            ->andWhere('c.id IN (:ids)')
+            ->select('v')
+            ->andWhere('v.id IN (:ids)')
             ->setParameter('ids', $collection)
             ->getQuery()->getResult();
-
 
         foreach ($data AS $item) {
             $return[$item->getId()] = $item;
@@ -115,6 +114,6 @@ class CharacterRepository extends ServiceEntityRepository implements \Domain\Ent
 
     public function recoverAllCharacters(): array
     {
-        // TODO: Implement recoverAllCharacters() method.
+        return $this->findAll();
     }
 }
