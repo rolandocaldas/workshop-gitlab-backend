@@ -14,7 +14,14 @@ use Domain\ValueObject\CharacterApiData;
 
 class MarvelApiClient implements Client
 {
+    /**
+     * @var string
+     */
     private $privateKey;
+
+    /**
+     * @var string
+     */
     private $publicKey;
 
     public function __construct(string $privateKey, string $publicKey)
@@ -30,7 +37,7 @@ class MarvelApiClient implements Client
      */
     public function getCharacters(?Criteria $criteria) : ?array
     {
-        return CharacterApiData::createCollectionFromData($this->sendRequestAndReturnResult('characters', $criteria)['data']['results']);
+        return CharacterApiData::createCollectionFromData($this->sendRequestAndReturnResult('characters', $criteria)->data->results);
     }
 
     private function sendRequestAndReturnResult(string $entity, ?Criteria $criteria)
@@ -55,7 +62,6 @@ class MarvelApiClient implements Client
         if ($error) {
             throw new \Exception($error);
         }
-
         return json_decode($result);
     }
 
@@ -80,6 +86,7 @@ class MarvelApiClient implements Client
         $query[] = 'ts=' . $time;
         $query[] = 'apikey=' . $this->publicKey;
         $query[] = 'hash=' . md5($time . $this->privateKey . $this->publicKey);
+        $query[] = 'limit=100';
 
         return implode('&', $query);
     }
