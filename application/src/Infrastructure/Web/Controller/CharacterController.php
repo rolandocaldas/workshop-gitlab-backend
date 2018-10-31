@@ -30,6 +30,8 @@ class CharacterController extends Controller
     public function importApi(MarvelApiClient $client)
     {
         (new ImportCharactersFromMarvel($client, $this->repository))->handle();
+
+        return new JsonResponse();
     }
 
     public function listElements()
