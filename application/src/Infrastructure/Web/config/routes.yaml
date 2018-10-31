@@ -3,29 +3,29 @@
 #    controller: App\Controller\DefaultController::index
 index:
   path: /
-  controller: App\Web\Controller\CharacterController::listElements
+  controller: App\Controller\CharacterController::listElements
   methods: [GET, HEAD]
 
 character_import:
   path: /character/import
-  controller: App\Web\Controller\CharacterController::importApi
+  controller: App\Controller\CharacterController::importApi
   methods: [GET, HEAD]
 
 character_list:
   path: /character
-  controller: App\Web\Controller\CharacterController::listElements
+  controller: App\Controller\CharacterController::listElements
   methods: [GET, HEAD]
 
 character_info:
   path: /character/{id}
-  controller: App\Web\Controller\CharacterController::itemInfo
+  controller: App\Controller\CharacterController::itemInfo
   methods: [GET, HEAD]
   requirements:
     id: '\d+'
 
 character_liked:
   path: /character/{id}
-  controller: App\Web\Controller\CharacterController::itemEditLiked
+  controller: App\Controller\CharacterController::itemEditLiked
   requirements:
     id: '\d+'
   methods: [PUT]
