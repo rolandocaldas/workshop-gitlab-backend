@@ -109,7 +109,7 @@ class CharacterRepository extends ServiceEntityRepository implements \Domain\Ent
 
     public function findCharacter(int $id): ?Character
     {
-        // TODO: Implement findCharacter() method.
+        return $this->find($id);
     }
 
     public function recoverAllCharacters(): array
