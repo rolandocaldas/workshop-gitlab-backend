@@ -1,6 +1,6 @@
 Domain\Entity\Character:
   type: entity
-  table: character
+  table: characters
   repositoryClass: App\Persistence\Doctrine\Repository\CharacterRepository
   id:
     id:
