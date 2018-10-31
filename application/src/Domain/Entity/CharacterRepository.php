@@ -12,7 +12,7 @@ interface CharacterRepository
 {
     public function save(Character $character) : bool;
     public function saveCollection(Character ...$collection) : bool;
-    public function recoverErrors(bool $truncate = true) : ?array;
+    public function recoverErrors(bool $truncate) : ?array;
     public function findCharacter(int $id) : ?Character;
     public function findCharactersById(int ... $collection) : array;
     public function recoverAllCharacters() : array;
