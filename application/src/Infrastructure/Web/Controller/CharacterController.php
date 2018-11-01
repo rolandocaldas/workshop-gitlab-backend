@@ -17,6 +17,7 @@ use Application\UseCase\CharacterList;
 use Application\UseCase\ImportCharactersFromMarvel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class CharacterController extends Controller
 {
@@ -44,8 +45,14 @@ class CharacterController extends Controller
         return new JsonResponse((new CharacterInfo($this->repository))->handle($id));
     }
 
-    public function itemEditLiked(int $id, bool $liked)
+    public function itemEditLiked(int $id, Request $request)
     {
-        (new CharacterLiked($this->repository))->handle($id, $liked);
+        $data = json_decode($request->getContent());
+        if (!property_exists($data, 'liked')) {
+            return new JsonResponse('', 404);
+        }
+
+        (new CharacterLiked($this->repository))->handle($id, $data->liked);
+        return new JsonResponse();
     }
 }
