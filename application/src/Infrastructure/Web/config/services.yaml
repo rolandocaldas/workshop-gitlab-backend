@@ -4,8 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    marvelApiClient.privateKey: ''
-    marvelApiClient.publicKey: ''
+    marvelApiClient.privateKey: 'f41d1baab70ee4eac33a3d654867823cb3883524'
+    marvelApiClient.publicKey: '4cad3560edfd85f8c3625ee042b659af'
 
 services:
     # default configuration for services in *this* file

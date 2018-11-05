@@ -10,7 +10,7 @@ namespace Application\UseCase;
 
 use Domain\Entity\CharacterRepository;
 
-class CharacterInfo
+class CharacterInfogit
 {
     private $repository;
 
@@ -21,7 +21,6 @@ class CharacterInfo
 
     public function handle(int $characterId)
     {
-        $character = $this->repository->findCharacter($characterId);
-        return $character->export();
+        return $this->repository->findCharacter($characterId);
     }
 }

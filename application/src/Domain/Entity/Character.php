@@ -11,7 +11,7 @@ namespace Domain\Entity;
 use Domain\ValueObject\CharacterApiData;
 use Domain\ValueObject\Thumbnail;
 
-class Character implements Exportable
+class Character implements \JsonSerializable
 {
     private $id;
     private $name;
@@ -41,7 +41,7 @@ class Character implements Exportable
         return "[" . $this->id . "] " . $this->name;
     }
 
-    public function export(): array
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),
@@ -111,6 +111,7 @@ class Character implements Exportable
      */
     public function getThumbnail(): Thumbnail
     {
+        //var_dump($this->thumbnail); die();
         return $this->thumbnail;
     }
 

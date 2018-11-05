@@ -27,11 +27,6 @@ class CharacterList
 
     public function handle()
     {
-        $this->characters = $this->repository->recoverAllCharacters();
-        $data = [];
-        foreach ($this->characters AS $character) {
-            $data[] = $character->export();
-        }
-        return $data;
+        return $this->repository->recoverAllCharacters();
     }
 }

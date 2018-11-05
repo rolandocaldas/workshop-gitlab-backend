@@ -8,9 +8,9 @@
 
 namespace Domain\ValueObject;
 
-class Thumbnail
+class Thumbnail implements \JsonSerializable
 {
-    const PORTRAIT = '/portait_medium.';
+    const PORTRAIT = '/portrait_fantastic.';
     const PORTRAIT_FULL = '/portrait_uncanny.';
     const STANDARD = '/standard_medium.';
     const STANDARD_FULL = '/standard_fantastic.';
@@ -30,5 +30,22 @@ class Thumbnail
     public function image(string $ratio = self::FULL)
     {
         return $this->path . $ratio . $this->extension;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'path' => $this->path,
+            'extension' => $this->extension,
+            'size' => [
+                'portrait' => self::PORTRAIT,
+                'portrait_full' => self::PORTRAIT_FULL,
+                'standard' => self::STANDARD,
+                'standard_full' => self::STANDARD_FULL,
+                'landscape' => self::LANDSCAPE,
+                'landscape_full' => self::LANDSCAPE_FULL,
+                'full' => self::FULL,
+            ],
+        ];
     }
 }
