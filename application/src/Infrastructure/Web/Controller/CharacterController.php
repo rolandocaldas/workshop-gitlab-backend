@@ -11,10 +11,10 @@ namespace App\Controller;
 
 use App\Persistence\Doctrine\Repository\CharacterRepository;
 use App\Service\MarvelApiClient;
-use Application\UseCase\CharacterInfo;
-use Application\UseCase\CharacterLiked;
-use Application\UseCase\CharacterList;
-use Application\UseCase\ImportCharactersFromMarvel;
+use Application\Service\CharacterInfo;
+use Application\Service\CharacterLiked;
+use Application\Service\CharacterList;
+use Application\Service\ImportCharactersFromMarvel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

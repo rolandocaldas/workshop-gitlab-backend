@@ -6,11 +6,11 @@
  * Time: 10:22
  */
 
-namespace Application\UseCase;
+namespace Application\Service;
 
 use Domain\Entity\CharacterRepository;
 
-class CharacterInfogit
+class CharacterInfo
 {
     private $repository;
 

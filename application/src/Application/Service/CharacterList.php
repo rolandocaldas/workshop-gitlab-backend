@@ -6,7 +6,7 @@
  * Time: 10:22
  */
 
-namespace Application\UseCase;
+namespace Application\Service;
 
 use Domain\Entity\Character;
 use Domain\Entity\CharacterRepository;

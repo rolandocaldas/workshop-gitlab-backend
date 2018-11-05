@@ -6,7 +6,7 @@
  * Time: 17:22
  */
 
-namespace Application\UseCase;
+namespace Application\Service;
 
 use Domain\Entity\Character;
 use Domain\Service\MarvelApiClient\Criteria;
