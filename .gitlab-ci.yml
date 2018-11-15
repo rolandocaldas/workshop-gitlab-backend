@@ -1,0 +1,30 @@
+stages:
+  - test
+  - build
+  - deploy
+php-unit:
+  stage: test
+  image: rolandocaldas/php:7.2-dev-mysql
+  script:
+    - cd application
+    - php -d memory_limit=-1 /usr/local/bin/composer update
+    - ./bin/phpunit --coverage-text --colors=never 
+other-test:
+  stage: test
+  script:
+    - echo "Nothing to do"
+test-build:
+  stage: build
+  image: docker:stable
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.example.com:4567
+  script:
+    - ls -lha
+    - docker build -t workshop-gitlab-backend .
+    - docker tag workshop-gitlab-backend gitlab.example.com:4567/root/workshop-gitlab-backend
+    - docker push gitlab.example.com:4567/root/workshop-gitlab-backend
+test-deploy:
+  stage: deploy
+  script:
+    - echo "fin"
+
